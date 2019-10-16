@@ -8,3 +8,15 @@
 将删除 vcs.xml
 !/seckill.iml
 !/.idea/
+将删除 .idea/.gitignore
+将删除 .idea/compiler.xml
+将删除 .idea/encodings.xml
+将删除 .idea/libraries/
+将删除 .idea/misc.xml
+将删除 .idea/modules.xml
+将删除 .idea/vcs.xml
+将删除 common/common.iml
+将删除 core/core.iml
+将删除 core/src/main/resources/static/
+将删除 core/src/main/resources/templates/
+将删除 seckill.iml
