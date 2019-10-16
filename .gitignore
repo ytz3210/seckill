@@ -1,0 +1,10 @@
+# Created by .ignore support plugin (hsz.mobi)
+将删除 .gitignore
+将删除 compiler.xml
+将删除 encodings.xml
+将删除 libraries/
+将删除 misc.xml
+将删除 modules.xml
+将删除 vcs.xml
+!/seckill.iml
+!/.idea/
