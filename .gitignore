@@ -88,3 +88,7 @@
 /.idea/modules.xml
 /seckill.iml
 /.idea/vcs.xml
+!/.idea/libraries/
+将删除 core/target/
+!/.idea/
+将删除 common/target/
