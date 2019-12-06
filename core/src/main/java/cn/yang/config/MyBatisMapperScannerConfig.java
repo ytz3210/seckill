@@ -1,6 +1,5 @@
 package cn.yang.config;
 
-import cn.yang.config.MybatisTableConfig;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;
