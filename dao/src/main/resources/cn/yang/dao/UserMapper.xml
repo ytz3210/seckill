@@ -2,12 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.yang.dao.UserMapper">
 
-    <resultMap id="BaseResultMap" type="cn.yang.entity.User" >
-    <result column="user_name" property="userName" jdbcType="VARCHAR" />
-    <result column="password" property="password" jdbcType="VARCHAR" />
-    </resultMap>
+    <!--    <resultMap id="BaseResultMap" type="cn.yang.entity.User" >-->
+    <!--    <result column="user_name" property="userName" jdbcType="VARCHAR" />-->
+    <!--    <result column="password" property="password" jdbcType="VARCHAR" />-->
+    <!--    </resultMap>-->
     <!-- 根据用户名查询 -->
-    <select id="getUsers" resultMap="BaseResultMap">
+    <select id="getUsers" resultType="cn.yang.entity.User">
 		select * from  t_user
 	</select>
+    <insert id="insertUser" parameterType="cn.yang.entity.User">
+        insert into t_user (id,user_name,password,is_deleted,version,create_time,update_time)
+        values (#{id},#{userName},#{password},#{deleted},#{version},#{createTime},#{updateTime})
+</insert>
 </mapper>

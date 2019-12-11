@@ -16,3 +16,13 @@ service/target/generated-sources/
 service/target/generated-test-sources/
 !/logs/
 !/.idea/
+/.idea/.gitignore
+/${fileGz}/2019-12/app-12-07-2019-1.web-info.gz
+/.idea/compiler.xml
+/.idea/encodings.xml
+/.idea/libraries/
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+/logs/web-error.log
+/logs/web-info.log
