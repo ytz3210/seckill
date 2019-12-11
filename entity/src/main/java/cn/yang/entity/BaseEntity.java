@@ -10,7 +10,7 @@ import java.io.Serializable;
 @MappedSuperclass
 @Data
 public abstract class BaseEntity implements Serializable {
-    @Column(name = "id",type = MySqlTypeConstant.VARCHAR,isKey = true,isUnique = true,length = 50)
+    @Column(name = "id",type = MySqlTypeConstant.VARCHAR,isUnique = true,length = 50)
     private String id;
 
     @Column(name = "is_deleted",type = MySqlTypeConstant.INT,length = 1)

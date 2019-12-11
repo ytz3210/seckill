@@ -10,6 +10,10 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import com.alibaba.druid.pool.DruidDataSource;
+
+/**
+ * 根据实体自动生成表字段
+ */
 @Configuration
 @ComponentScan(basePackages = {"com.gitee.sunchenbin.mybatis.actable.manager.*"})
 public class MybatisTableConfig {
@@ -59,7 +63,7 @@ public class MybatisTableConfig {
         sqlSessionFactoryBean.setDataSource(dataSource());
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath*:com/gitee/sunchenbin/mybatis/actable/mapping/*/*.xml"));
-//实体类的位置
+        //实体类的位置
         sqlSessionFactoryBean.setTypeAliasesPackage("cn.yang.entity.*");
         return sqlSessionFactoryBean;
     }
