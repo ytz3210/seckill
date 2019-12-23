@@ -26,3 +26,4 @@ service/target/generated-test-sources/
 /.idea/vcs.xml
 /logs/web-error.log
 /logs/web-info.log
+!/.idea/

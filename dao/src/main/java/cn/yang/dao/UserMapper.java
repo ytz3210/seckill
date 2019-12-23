@@ -10,4 +10,6 @@ public interface UserMapper {
 //    @InterceptAnnotation
     List<User> getUsers();
     Integer insertUser(User user);
+    Integer selectCount(String id);
+    Integer updateAmount(User user);
 }

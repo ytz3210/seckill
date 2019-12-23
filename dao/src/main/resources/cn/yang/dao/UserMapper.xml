@@ -14,4 +14,10 @@
         insert into t_user (id,user_name,password,is_deleted,version,create_time,update_time)
         values (#{id},#{userName},#{password},#{deleted},#{version},#{createTime},#{updateTime})
 </insert>
+    <select id="selectCount" resultType="java.lang.Integer">
+        select amount from t_user where  id=#{id}
+    </select>
+    <update id="updateAmount">
+        update t_user set amount=amount-1,update_time=#{updateTime} where id=#{id}
+    </update>
 </mapper>

@@ -7,4 +7,6 @@ import org.springframework.stereotype.Service;
 public interface UserService {
     ResTO getUsers();
     ResTO setUser(User user);
+    ResTO selectCount(String id);
+    ResTO updateAmount(User user);
 }

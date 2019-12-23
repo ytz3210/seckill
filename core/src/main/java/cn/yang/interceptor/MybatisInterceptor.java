@@ -46,10 +46,6 @@ public class MybatisInterceptor implements Interceptor {
         }
         String sqlId = mappedStatement.getId();
         log.error("sqlId:{}",sqlId);
-        BoundSql boundSql = mappedStatement.getBoundSql(parameter);
-        Configuration configuration = mappedStatement.getConfiguration();
-        String sql = getSql(configuration, boundSql, sqlId); // 获取到最终的sql语句
-        log.error("sql语句:{}",sql);
         //注解中method的值
         String methodName = invocation.getMethod().getName();
         //sql类型
@@ -78,14 +74,18 @@ public class MybatisInterceptor implements Interceptor {
                 log.error("插入操作时设置update_time:{}", currentDate);
                 Field fieldVersion = object.getClass().getSuperclass().getDeclaredField("version");
                 fieldVersion.setAccessible(true);
-                fieldVersion.set(object,currentDate);
+                fieldVersion.set(object,1);
                 log.error("插入操作时设置version:{}", 1);
             } else if (SqlCommandType.UPDATE.equals(sqlCommandType)) {
-                Field fieldModifyTime = object.getClass().getSuperclass().getDeclaredField("update_time");
+                Field fieldModifyTime = object.getClass().getSuperclass().getDeclaredField("updateTime");
                 fieldModifyTime.setAccessible(true);
                 fieldModifyTime.set(object, currentDate);
                 log.info("更新操作时设置update_time:{}", currentDate);
             }
+            BoundSql boundSql = mappedStatement.getBoundSql(parameter);
+            Configuration configuration = mappedStatement.getConfiguration();
+            String sql = getSql(configuration, boundSql, sqlId); // 获取到最终的sql语句
+            log.error("sql语句:{}",sql);
         }
         return invocation.proceed();
     }

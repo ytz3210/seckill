@@ -23,4 +23,20 @@ public class UserServiceImpl implements UserService {
         userDao.insertUser(user);
         return RUtil.success();
     }
+
+    @Override
+    public ResTO selectCount(String id) {
+        return RUtil.success(userDao.selectCount(id));
+    }
+    @Override
+    public ResTO updateAmount(User user) {
+        synchronized (this){
+            int amount = userDao.selectCount(user.getId());
+            if(amount > 0){
+                userDao.updateAmount(user);
+            }
+        }
+        return RUtil.success();
+    }
+
 }

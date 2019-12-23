@@ -26,4 +26,14 @@ public class TestController {
         user.setPassword("12345678");
         return userService.setUser(user);
     }
+    @GetMapping("/in_amount")
+    public ResTO getAmount(){
+        return userService.selectCount("88ef12a3-181f-433e-b700-1a8bed038e32");
+    }
+    @GetMapping("/update")
+    public ResTO updateAmount(){
+        User user = new User();
+        user.setId("88ef12a3-181f-433e-b700-1a8bed038e32");
+        return userService.updateAmount(user);
+    }
 }
