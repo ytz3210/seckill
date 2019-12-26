@@ -12,4 +12,5 @@ public interface UserMapper {
     Integer insertUser(User user);
     Integer selectCount(String id);
     Integer updateAmount(User user);
+    User getUser(String id);
 }

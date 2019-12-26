@@ -18,6 +18,9 @@
         select amount from t_user where  id=#{id}
     </select>
     <update id="updateAmount">
-        update t_user set amount=amount-1,update_time=#{updateTime} where id=#{id}
+        update t_user set amount=amount-1,update_time=#{updateTime},version=version + 1 where id=#{id} and version=#{version}
     </update>
+    <select id="getUser" resultType="cn.yang.entity.User">
+        select * from t_user where id=#{id}
+    </select>
 </mapper>

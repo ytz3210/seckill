@@ -31,10 +31,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResTO updateAmount(User user) {
         synchronized (this){
-            int amount = userDao.selectCount(user.getId());
-            if(amount > 0){
-                userDao.updateAmount(user);
-            }
+            User userDaoUser = userDao.getUser(user.getId());
+            userDaoUser.setAmount(userDaoUser.getAmount()-1);
+            userDao.updateAmount(userDaoUser);
         }
         return RUtil.success();
     }
